@@ -1,0 +1,11 @@
+plugins {
+    id 'com.jfrog.bintray' version '1.7.3'
+}
+
+apply plugin: 'maven-publish'
+apply from: file('gradle/main.gradle')
+
+sourceCompatibility = compatibilityVersion
+targetCompatibility = compatibilityVersion
+
+apply from: file('gradle/publishing.gradle')
