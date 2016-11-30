@@ -1,0 +1,9 @@
+apply from: file('gradle/main.gradle')
+
+final props = new Properties()
+new File(projectDir, 'gradle.properties').withInputStream {
+    props.load(it)
+}
+version = props.getProperty('version')
+sourceCompatibility = props.getProperty('compatibilityVersion')
+targetCompatibility = props.getProperty('compatibilityVersion')
