@@ -16,6 +16,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.jishida.gradle:gradle-plugin-commons:0.1'
+    compile 'com.github.jishida.gradle:gradle-plugin-commons:0.1.1'
 }
 ```
