@@ -10,7 +10,7 @@ task javadocJar(type : Jar, dependsOn : javadoc) {
 
 publishing {
     publications {
-        pluginCommonsPublication(MavenPublication) {
+        pluginCommonsMaven(MavenPublication) {
             from components.java
 
             artifact sourceJar
@@ -22,7 +22,7 @@ publishing {
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    publications = ['pluginCommonsPublication']
+    publications = ['pluginCommonsMaven']
 
     pkg {
         repo = 'maven'
