@@ -1,5 +1,4 @@
 plugins {
-    id 'com.gradle.plugin-publish' version '0.9.6'
     id 'com.jfrog.bintray' version '1.7.3'
 }
 
