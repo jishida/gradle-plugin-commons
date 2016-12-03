@@ -7,3 +7,15 @@ gradle-plugin-commons
 [![Download](https://api.bintray.com/packages/jishida/maven/gradle-plugin-commons/images/download.svg) ](https://bintray.com/jishida/maven/gradle-plugin-commons/_latestVersion)
 
 Utilities for gradle plugin.
+
+## Usage
+
+```gradle
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.github.jishida.gradle:gradle-plugin-commons:0.1'
+}
+```
