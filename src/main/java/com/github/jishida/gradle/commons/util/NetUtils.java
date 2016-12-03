@@ -110,7 +110,13 @@ public final class NetUtils {
         return defaultName;
     }
 
+    public static void downloadFile(final URL url, final File file) throws HttpResponseException, IOException {
+        downloadFile(url, file);
+    }
+
     public static void downloadFile(final URL url, final File file, final boolean insecure) throws HttpResponseException, IOException {
+        Checker.checkNull(url, "url");
+        Checker.checkNull(file, "file");
         final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         if (connection instanceof HttpsURLConnection && insecure) {
             final HttpsURLConnection https = (HttpsURLConnection) connection;
