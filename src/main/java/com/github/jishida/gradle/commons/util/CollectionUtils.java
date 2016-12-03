@@ -68,7 +68,7 @@ public final class CollectionUtils {
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
-        for (Object entry : result.entrySet()) {
+        for (Object entry : map.entrySet()) {
             Map.Entry<K, V> e = (Map.Entry<K, V>) entry;
             result.put(e.getKey(), e.getValue());
         }
