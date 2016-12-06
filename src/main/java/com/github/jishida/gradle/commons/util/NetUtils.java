@@ -111,7 +111,7 @@ public final class NetUtils {
     }
 
     public static void downloadFile(final URL url, final File file) throws HttpResponseException, IOException {
-        downloadFile(url, file);
+        downloadFile(url, file, false);
     }
 
     public static void downloadFile(final URL url, final File file, final boolean insecure) throws HttpResponseException, IOException {
@@ -143,9 +143,9 @@ public final class NetUtils {
                                         try {
                                             byte[] buffer = new byte[BUFFER_SIZE];
                                             while (true) {
-                                                final int count = inputStream.read(buffer);
-                                                if (count == -1) break;
-                                                outputStream.write(buffer);
+                                                final int size = inputStream.read(buffer, 0, BUFFER_SIZE);
+                                                if (size == -1) break;
+                                                outputStream.write(buffer, 0, size);
                                             }
                                         } catch (IOException e) {
                                             throw new RuntimeException(e);
