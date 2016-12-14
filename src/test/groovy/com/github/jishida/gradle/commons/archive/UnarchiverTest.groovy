@@ -2,9 +2,10 @@ package com.github.jishida.gradle.commons.archive
 
 import nebula.test.ProjectSpec
 import spock.lang.Shared
+import static com.github.jishida.gradle.commons.TestStrings.TEST_TEMP_PATH;
 
 class UnarchiverTest extends ProjectSpec {
-    private final static TEST_ARCHIVE_PATH = 'build/tmp/com.github.jishida.gradle.commons.archive'
+    private final static TEST_ARCHIVE_PATH = "${TEST_TEMP_PATH}/UnarchiverTest"
     private final static archiveTypes = Arrays.asList('tar', 'tar.bz2', 'tar.gz', 'tar.xz', 'zip')
 
     @Shared

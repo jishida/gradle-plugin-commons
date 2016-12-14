@@ -110,7 +110,13 @@ public final class NetUtils {
         return defaultName;
     }
 
+    public static void downloadFile(final URL url, final File file) throws HttpResponseException, IOException {
+        downloadFile(url, file, false);
+    }
+
     public static void downloadFile(final URL url, final File file, final boolean insecure) throws HttpResponseException, IOException {
+        Checker.checkNull(url, "url");
+        Checker.checkNull(file, "file");
         final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         if (connection instanceof HttpsURLConnection && insecure) {
             final HttpsURLConnection https = (HttpsURLConnection) connection;
@@ -137,9 +143,9 @@ public final class NetUtils {
                                         try {
                                             byte[] buffer = new byte[BUFFER_SIZE];
                                             while (true) {
-                                                final int count = inputStream.read(buffer);
-                                                if (count == -1) break;
-                                                outputStream.write(buffer);
+                                                final int size = inputStream.read(buffer, 0, BUFFER_SIZE);
+                                                if (size == -1) break;
+                                                outputStream.write(buffer, 0, size);
                                             }
                                         } catch (IOException e) {
                                             throw new RuntimeException(e);
